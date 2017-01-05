@@ -2,12 +2,53 @@
 {% load staticfiles %}
 <html>
 <head>
-<title>部落格</title>
+<title>狗仔隊</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'article/css/article.css' %}">
 </head>
 <body>
-<h2>這個使首頁</h2>
+<h2>狗仔隊之首頁</h2>
 {% include 'main/menu.html' %}
+{% include 'main/messages.html' %}
+<table id=articleread>
+<td>
+{% if user.is_authenticated %}
+	<p><a class="btn" href="{% url 'article:articleCreate' %}">新增文章</a></p>
+{% endif %}
+	<form class="inlineBlock" action="{% url 'article:articleSearch' %}">
+	<span id=title>毛孩子的生活日記</span>
+	<input type="text" name="searchTerm">
+	<input class="btn" type="submit" value="查詢">
+	</form>
+	<p id=read>{% for items in itemsList %}
+		{% for item in items %}
+			{% if forloop.first %}
+				<h3><a href="{% url 'article:articleRead' item.id %}">{{ item.title }}</a></h3>
+				<p>發表時間:{{ item.pubDateTime|date:'Y-m-d H:i' }}</p>
+				<p><div class=articleContent>{{ item.content|linebreaks|truncatechars_html:30 }}</div></p>
+				
+				{% if user.is_superuser %}
+				<form class="inlineBlock" method="post" action="{% url 'article:articleDelete' item.id %}">
+				{% csrf_token %}
+				<input class="btn" type="submit" value="刪除">
+				</form>
+				{% endif %}
+				
+				{% else %}
+			{% endif %}
+		{% endfor %}
+		<hr>
+	{% endfor %}
+	</p>
+	</td>
+</table>
+
+<div>
+<hr>
+<p class=main>愛牠請不要丟棄牠，給狗狗一個溫暖幸福的家</p>
+<p class=main>Write by：資管2B 10414110 林政騰 ， 10414029 管羿筑 ， 10414083 林信安</p>
+<br>
+</div>
 </body>
 </html>

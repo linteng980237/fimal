@@ -1,0 +1,51 @@
+html,body{
+	background: url(../img/6.jpg) no-repeat center center fixed ;
+	background-size: cover;
+	background-color: #79ff79;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+a{
+	text-decoration: none;
+	
+}
+#home:hover{
+	font-size:1.5em;
+	transition-duration: 1s;
+	text-shadow: 2px 2px 2px black;
+}
+.btn {
+  color: black;
+  font-size: 0.8em;
+  padding: 10px 10px;
+  text-decoration: none;
+  background: linear-gradient(#53524e, #eeedec);
+  border-radius: 5px;
+}
+li{
+	display:inline-block;
+}
+#menu a{
+	padding: 10px 50px;
+	background: yellow;
+	color: black;
+	border-radius: 5px;
+}
+#menu a:hover{
+	color: red;
+}
+#menu li{
+	padding-top:30px;
+	padding-bottom: 50px;
+}
+#reason{
+	text-align: left;
+	padding-left: 200px;
+	width: 80%;
+}
+h1{
+	text-align: center;
+	color: blue;
+}

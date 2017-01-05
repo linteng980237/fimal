@@ -1,0 +1,37 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<meta charset=utf-8>
+<link rel=stylesheet href="{% static 'main/css/main.css' %}">
+<link rel=stylesheet href="{% static 'article/css/article.css' %}">
+</head>
+<body>
+<h2>狗仔隊之關於狗狗</h2>
+{% include 'main/menu.html' %}
+	{% for items in itemsList %}
+		{% for item in items %}
+		<div id=dog1>
+			<ul id=dog>			
+			<li><span class=topic>犬種：</span>{{ item.kind }}	</li>		
+			<li><span class=topic>平均身高：</span>{{ item.tall }}</li>
+			<li><span class=topic>平均體重：</span>{{ item.kg }}</li>
+			<li><span class=topic>性格：</span>{{ item.guts }}</li>
+			<li><span class=topic>原產地：</span>{{ item.live }}</li>
+			<li><span class=topic>特徵：</span>{{ item.habit }}</li>
+			<li><span class=topic>歷史：</span>{{ item.history }}</li>			
+			</ul>
+		</div>
+		{% endfor %}
+	{% endfor %}
+<br>
+<div>
+
+<p class=main>愛牠請不要丟棄牠，給狗狗一個溫暖幸福的家</p>
+<p class=main>Write by：資管2B 10414110 林政騰 ， 10414029 管羿筑 ， 10414083 林信安</p>
+<br>
+</div>
+</body>
+
+
+</html>

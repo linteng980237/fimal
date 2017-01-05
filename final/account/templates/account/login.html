@@ -1,0 +1,22 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<meta charset=utf-8>
+<link rel=stylesheet href="{% static 'main/css/main.css' %}">
+<link rel=stylesheet href="{% static 'article/css/article.css' %]">
+</head>
+<body>
+<h2>狗仔隊</h2>
+{% include 'main/menu.html' %}
+<form method="post" action="{% url 'account:login' %}">
+{% csrf_token %}
+<p>使用者名稱:<input type="text" name="username"></p>
+<p>密碼:<input type="password" name="password"></p>
+{% if nextURL %}
+<input type="hidden" name="nextURL" value="{{ nextURL }}">
+{% endif %}
+<p><input type="submit" value="送出"></p>
+</form>
+</body>
+</html>

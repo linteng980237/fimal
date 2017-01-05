@@ -5,6 +5,7 @@ html,body{
 	margin: 0;
 	height: 100%;
 	width: 100%;
+	text-align: center;
 }
 img{
 	opacity: 0.2;
@@ -12,8 +13,9 @@ img{
 h1{
 	text-align: center;
 }
-p{
+p.main{
 	text-align: center;
+	clear: both;
 }
 #enter{
 	width: 100%;
@@ -22,16 +24,94 @@ a{
 	text-decoration: none;
 	
 }
-h1{
-	
+#home:hover{
+	font-size:1.5em;
+	transition-duration: 1s;
+	text-shadow: 2px 2px 2px black;
 }
 .btn {
   color: black;
   font-size: 0.8em;
   padding: 10px 10px;
   text-decoration: none;
-  border: 1px solid red; 
+  background: linear-gradient(#53524e, #eeedec);
+  border-radius: 5px;
 }
 li{
 	display:inline-block;
 }
+/* Misc */
+.inlineBlock {
+	display: inline-block;
+}
+.error {
+	color: red;
+}
+/* Table */
+.table {
+	margin: 0 auto;
+	width: 80%;
+	border-collapse: collapse;
+}
+.table th {
+	font-weight: normal;
+	font-size: 1.1em;
+	padding: 10px 0 10px 10px;
+	text-align: center;
+	background: linear-gradient(#cccccc, #aaaaaa);
+	border-bottom: 1px solid black
+}
+.table td {
+	color: #222222;
+	background-color: #d0d0d0;
+	padding: 12px 0 12px 10px;
+}
+.table-striped tr:nth-child(even) td {
+	background-color: #eeeeee;
+}
+.table-hover tr:hover td {
+	background-color: #cccccc;
+}
+#menu a{
+	padding: 10px 50px;
+	background: yellow;
+	color: black;
+	border-radius: 5px;
+}
+#menu a:hover{
+	color: red;
+}
+#menu li{
+	padding-top:30px;
+	padding-bottom: 50px;
+}
+#title{
+	color: #2d0e0b;
+	font-size: 1.5em;
+}
+
+#dog ul{
+	text-align: center;
+}
+
+#dog li{
+	display: block;
+	width:100%;
+	
+}
+
+#dog1{
+	text-align:left;
+	width:30%;
+	height: 50%;
+	float:left;
+	padding-left: 40px;
+	padding-bottom:40px;
+}
+
+.topic{
+	color: red;
+}
+
+
+

@@ -1,0 +1,10 @@
+
+#quit{
+	padding: 14px 10px;
+}
+body{
+	text-align:center;
+}
+.btn:hover{
+	color:red;
+}

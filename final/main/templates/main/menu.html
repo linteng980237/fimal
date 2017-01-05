@@ -1,6 +1,11 @@
 <ul id=menu>
-  <li><a href="{% url 'main:homepage' %}">回首頁</a></li>
-  <li><a href=#>可愛狗狗</a></li>
-  <li><a href=#>關於狗狗</a></li>
-  <li><a href=#>網站由來</a></li>
+  <li><a href="{% url 'article:article' %}">回首頁</a></li>
+  <li><a href="{% url 'dog:dog' %}">關於狗狗</a></li>
+  <li><a href="{% url 'main:reason' %}">更多知識</a></li>
+  {% if user.is_authenticated %}
+	<li><a href="{% url 'account:logout' %}">登出({{ user.username }})</a></li>
+  {% else %}
+  <li><a href="{% url 'account:register' %}">註冊</a></li>
+  <li><a href="{% url 'account:login' %}">登入</a></li>
+  {% endif %}
 </ul>

@@ -1,0 +1,33 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<title>狗仔隊</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'article/css/article.css' %}">
+</head>
+<body>
+<h2>狗仔隊</h2>
+{% include 'main/menu.html' %}
+{% include 'main/messages.html' %}
+<h3 class="inlineBlock">{{ article.title }}</h3>
+{% if user.is_authenticated %}
+<a class="btn inlineBlock" href="{% url 'article:articleUpdate' article.id %}">修改</a>
+{% endif %}
+<p>發表時間:{{ article.pubDateTime|date:'Y-m-d H:i' }}</p>
+<div class=articleContent>{{ article.content|linebreaks }}</div>
+{% for comment in comments %}
+<p>
+<span class=comment>{{ comment.content }}</span><br>
+<span class=commentTime>{{ comment.pubDateTime|date:'Y-m-d H:i'}}</span>
+</p>
+{% endfor %}
+</body>
+<div>
+<hr>
+<p class=main>愛牠請不要丟棄牠，給狗狗一個溫暖幸福的家</p>
+<p class=main>Write by：資管2B 10414110 林政騰 ， 10414029 管羿筑 ， 10414083 林信安</p>
+<br>
+</div>
+</html>

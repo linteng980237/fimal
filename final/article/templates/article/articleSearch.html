@@ -1,0 +1,37 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<title>狗仔隊</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+</head>
+<body>
+<h2>狗仔隊</h2>
+{% include 'main/menu.html' %}
+<form class="inlineBlock" action="{% url 'article:articleSearch' %}">
+	<input type="text" name="searchTerm">
+	<input class="btn" type="submit" value="查詢">
+</form>
+<br><br><hr>
+{% if not articles %}
+	<p>查無資料</p>
+{% else %}
+	<table class="table table-striped table-hover">
+	<tr><th>標題</th><th>發表時間</th></tr>
+	{% for article in articles %}
+	<tr>
+		<td><a href="{% url 'article:articleRead' article.id %}">{{ article.title }}</a></td>
+		<td>{{ article.pubDateTime|date:'Y-m-d H:i' }}</td>
+	</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+</body>
+<div>
+<hr>
+<p class=main>愛牠請不要丟棄牠，給狗狗一個溫暖幸福的家</p>
+<p class=main>Write by：資管2B 10414110 林政騰 ， 10414029 管羿筑 ， 10414083 林信安</p>
+<br>
+</div>
+</html>
